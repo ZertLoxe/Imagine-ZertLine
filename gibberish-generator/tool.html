@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Unlimit Your Imagination">
+    <meta name="viewport" content="width=device-width, initail-scale=1.0">
+    <meta name="keywords" content="zertline, zertloxe">
+    <meta name="author" content="zertloxe">
+
+    <title>Gibberish</title>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "http://fun.zertline.com",
+            "name": "ZertLine",
+            "description": "Unlimit Your Imagination"
+        }
+        </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.36/moment-timezone-with-data-10-year-range.min.js"></script>
+
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>ZertLine is Fun</h1>
+        </div>
+    </header>
+    <div>
+        <h3>Gibberish generator</h3>
+
+        <div>
+            <h4>language configuration</h4>
+            <div>
+                <input type="radio" id="randomConfig" name="randFactor" value="randFactorNuetral" checked />
+                <label for="randomConfig">Random</label>
+            </div>
+            <div>
+                <input type="radio" id="utoplingConfig" name="randFactor" value="randFactorUtopling" />
+                <label for="utoplingConfig">Utopling</label>
+            </div>
+        </div>
+
+        <hr>
+
+        <div>
+            <h4>first word letter</h4>
+            <div>
+                <input type="radio" id="firstLetterCheck" name="firstLetterCheck" value="random" checked />
+                <label for="firstLetterCheck">Random</label>
+            </div>
+            <div>
+                <input type="radio" id="firstLetterCheck" name="firstLetterCheck" value="custom" />
+                <label for="firstLetterCheck">Custom</label>
+                <input type="text" id="firstLetterInput" name="name" required minlength="1" maxlength="1" disabled />
+            </div>
+        </div>
+
+        <hr>
+
+        <button type="button" id="G-generate">generate</button>
+        <button type="button" id="G-reset">reset</button>
+        <h4>results</h4>
+        <div id="G-output"></div>
+    </div>
+    <footer>
+        <div>
+            <p class="footer-text">made for fun by ZertLine :)</p>
+        </div>
+    </footer>
+    <script>
+
+        if (document.querySelector('input[name="firstLetterCheck"]')) {
+            document.querySelectorAll('input[name="firstLetterCheck"]').forEach((item) => {
+                item.addEventListener("change", function (event) {
+                    var item = event.target.value;
+                    if (item === 'random') {
+                        document.getElementById('firstLetterInput').disabled = true;
+                        document.getElementById('firstLetterInput').value = "";
+                    } else {
+                        document.getElementById('firstLetterInput').disabled = false;
+                    }
+                });
+            });
+        }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        let randFactorNuetral = [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
+
+        let randFactorUtopling = [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
+
+        let maxRandValueConfigData = {
+            "randFactorNuetral": 21,
+            "randFactorUtopling": 21
+        }
+
+        document.getElementById('G-reset').addEventListener('click', () => {
+            document.getElementById("G-output").innerHTML = "";
+        })
+
+        document.getElementById('G-generate').addEventListener('click', () => {
+            function consonantStructure() {
+                let consonatStructureProbability = getRandomInt(1, 11);
+
+                if (consonatStructureProbability > 0 && consonatStructureProbability <= 1) {
+                    return 1
+                } else if (consonatStructureProbability > 1 && consonatStructureProbability <= 3) {
+                    return 2
+                } else if (consonatStructureProbability > 3 && consonatStructureProbability <= 8) {
+                    return 3
+                } else if (consonatStructureProbability > 8 && consonatStructureProbability <= 9) {
+                    return 4
+                } else if (consonatStructureProbability > 9 && consonatStructureProbability <= 10) {
+                    return 5
+                }
+            }
+
+            let wordLength = [];
+
+            function wordLengthFunction() {
+                let wordMaxLength = consonantStructure();
+
+                console.log(wordMaxLength)
+
+                for (let i = 1; i <= wordMaxLength; i++) {
+                    let wordStructureProbability = getRandomInt(1, 101);
+
+                    if (wordStructureProbability > 0 && wordStructureProbability <= 20) {
+                        wordLength.push(0)
+                        wordMaxLength++
+                    } else if (wordStructureProbability > 20 && wordStructureProbability <= 65) {
+                        wordLength.push(1)
+                    } else if (wordStructureProbability > 65 && wordStructureProbability <= 95) {
+                        wordLength.push(2)
+                    } else if (wordStructureProbability > 95 && wordStructureProbability <= 97) {
+                        wordLength.push(3)
+                    } else if (wordStructureProbability > 97 && wordStructureProbability <= 99) {
+                        wordLength.push(4)
+                    } else if (wordStructureProbability > 99 && wordStructureProbability <= 100) {
+                        wordLength.push(5)
+                    }
+                }
+
+                function removeExtraZero(arr) {
+                    let zeroCount = 0;
+                    let result = [];
+
+                    for (let num of arr) {
+                        if (num !== 0 || zeroCount < 2) {
+                            result.push(num);
+                            if (num === 0) {
+                                zeroCount++;
+                            }
+                            if (zeroCount === 3) {
+                                zeroCount = 0;
+                            }
+                        }
+                    }
+
+                    return result;
+                }
+
+                wordLength = removeExtraZero(wordLength)
+                wordLength = wordLength.slice(0,5)
+            }
+
+            let letters = 'abcdefghijklmnopqrstuvwxyz';
+            let consonants = 'bcdfghjklmnpqrstvwxyz';
+            let vowels = 'aeiou';
+
+            function getRandomLetter(type) {
+                let randomIndex = Math.floor(Math.random() * type.length);
+                return type[randomIndex];
+            }
+
+            let maxRandValueConfig = maxRandValueConfigData[document.querySelector('input[name="randFactor"]:checked').value];
+
+            let randFactor = eval(document.querySelector('input[name="randFactor"]:checked').value);
+
+            wordLengthFunction();
+
+            function getConsonant(k) {
+                let randInt = getRandomInt(1, maxRandValueConfig + 1)
+                if (randInt > 0 && randInt <= randFactor[k][0]) {
+                    return "b"
+                } else if (randInt > randFactor[k][0] && randInt <= randFactor[k][1]) {
+                    return "c"
+                } else if (randInt > randFactor[k][1] && randInt <= randFactor[k][2]) {
+                    return "d"
+                } else if (randInt > randFactor[k][2] && randInt <= randFactor[k][3]) {
+                    return "f"
+                } else if (randInt > randFactor[k][3] && randInt <= randFactor[k][4]) {
+                    return "g"
+                } else if (randInt > randFactor[k][4] && randInt <= randFactor[k][5]) {
+                    return "h"
+                } else if (randInt > randFactor[k][5] && randInt <= randFactor[k][6]) {
+                    return "j"
+                } else if (randInt > randFactor[k][6] && randInt <= randFactor[k][7]) {
+                    return "k"
+                } else if (randInt > randFactor[k][7] && randInt <= randFactor[k][8]) {
+                    return "l"
+                } else if (randInt > randFactor[k][8] && randInt <= randFactor[k][9]) {
+                    return "m"
+                } else if (randInt > randFactor[k][9] && randInt <= randFactor[k][10]) {
+                    return "n"
+                } else if (randInt > randFactor[k][10] && randInt <= randFactor[k][11]) {
+                    return "p"
+                } else if (randInt > randFactor[k][11] && randInt <= randFactor[k][12]) {
+                    return "q"
+                } else if (randInt > randFactor[k][12] && randInt <= randFactor[k][13]) {
+                    return "r"
+                } else if (randInt > randFactor[k][13] && randInt <= randFactor[k][14]) {
+                    return "s"
+                } else if (randInt > randFactor[k][14] && randInt <= randFactor[k][15]) {
+                    return "t"
+                } else if (randInt > randFactor[k][15] && randInt <= randFactor[k][16]) {
+                    return "v"
+                } else if (randInt > randFactor[k][16] && randInt <= randFactor[k][17]) {
+                    return "w"
+                } else if (randInt > randFactor[k][17] && randInt <= randFactor[k][18]) {
+                    return "x"
+                } else if (randInt > randFactor[k][18] && randInt <= randFactor[k][19]) {
+                    return "y"
+                } else if (randInt > randFactor[k][19] && randInt <= randFactor[k][20]) {
+                    return "z"
+                }
+            }
+
+            function getConsonantIndex(consonant) {
+                const consonants = "bcdfghjklmnpqrstvwxyz";
+                return consonants.indexOf(consonant);
+            }
+
+            function isVowelOrConsonant(letter) {
+
+                const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+                if (vowels.includes(letter)) {
+                    return "vowel";
+                } else if (/^[a-zA-Z]$/.test(letter)) {
+                    return "consonant";
+                }
+            }
+
+            let instantLetterValue = "";
+
+            if (document.querySelector('input[name="firstLetterCheck"]:checked').value === "random") {
+                instantLetterValue = getRandomLetter(letters);
+            } else {
+                instantLetterValue = document.getElementById("firstLetterInput").value.toLowerCase()
+            }
+
+            console.log(instantLetterValue);
+
+            let vowelToAdd = "";
+
+            let gibberishOutput = instantLetterValue;
+            for (let j = 0; j < wordLength[0]; j++) {
+                vowelToAdd = getRandomLetter(vowels)
+                while (gibberishOutput[gibberishOutput.length - 1] === vowelToAdd) {
+                    vowelToAdd = getRandomLetter(vowels)
+                }
+                gibberishOutput += vowelToAdd;
+            }
+            if (isVowelOrConsonant(instantLetterValue) == "vowel") {
+                instantLetterValue = getRandomLetter(consonants);
+                gibberishOutput += instantLetterValue;
+            } else {
+                instantLetterValue = getConsonant(getConsonantIndex(instantLetterValue));
+                gibberishOutput += instantLetterValue;
+            }
+            for (let j = 0; j < wordLength[1]; j++) {
+                vowelToAdd = getRandomLetter(vowels)
+                while (gibberishOutput[gibberishOutput.length - 1] === vowelToAdd) {
+                    vowelToAdd = getRandomLetter(vowels)
+                }
+                gibberishOutput += vowelToAdd;
+            }
+            instantLetterValue
+            for (let i = 2; i < wordLength.length; i++) {
+                instantLetterValue = getConsonant(getConsonantIndex(instantLetterValue));
+                gibberishOutput += instantLetterValue;
+                for (let j = 0; j < wordLength[i]; j++) {
+                    vowelToAdd = getRandomLetter(vowels)
+                    while (gibberishOutput[gibberishOutput.length - 1] === vowelToAdd) {
+                        vowelToAdd = getRandomLetter(vowels)
+                    }
+                    gibberishOutput += vowelToAdd;
+                }
+            }
+
+            document.getElementById("G-output").innerHTML += gibberishOutput + "<br>";
+
+            console.log(wordLength)
+
+            console.log(gibberishOutput);
+        })
+    </script>
+</body>
+
+</html>
